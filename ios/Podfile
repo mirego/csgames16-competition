@@ -1,0 +1,17 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+xcodeproj 'CSQuiz.xcodeproj'
+
+use_frameworks!
+
+platform :ios, '9.0'
+
+# 3rd party
+pod 'Alamofire', :inhibit_warnings => true
+pod 'SwiftyJSON', :inhibit_warnings => true
+pod 'SVProgressHUD', :inhibit_warnings => true
+
+# Public - Mirego
+pod 'MCUIColorUtils', :inhibit_warnings => true
+pod 'MCDateExtensions', :inhibit_warnings => true
+pod 'MCUIViewLayout', :inhibit_warnings => true
