@@ -2,29 +2,28 @@ var express = require('express');
 var router = express.Router();
 
 /*
- * GET all users
+ * GET all messages
  */
 router.get('/', function(req, res) {
   var db = req.db;
-  var collection = db.users;
-  var filter = req.query.name ? { "name": req.query.name } : {};
-  collection.find(filter, {}, function(e, docs) {
+  var collection = db.messages;
+  collection.find({}, {}, function(e, docs) {
     res.json(docs);
   });
 });
 
 /*
- * GET a user
+ * GET a message
  */
 router.get('/:id', function(req, res) {
   var db = req.db;
-  var userId = req.params.id;
-  var collection = db.users;
+  var messageId = req.params.id;
+  var collection = db.messages;
   collection.findOne({
-    "_id": userId
+    "_id": messageId
   }, {}, function(err, doc) {
     if (doc == null) {
-      res.status(404) // HTTP status 404: NotFound
+      res.status(404)
       res.send('Not found');
     } else {
       res.json(doc);
@@ -33,14 +32,14 @@ router.get('/:id', function(req, res) {
 });
 
 /*
- * Update a user
+ * Update a message
  */
 router.put('/:id', function(req, res) {
   var db = req.db;
-  var userId = req.params.id;
-  var collection = db.users;
+  var messageId = req.params.id;
+  var collection = db.messages;
   collection.update({
-    "_id": userId
+    "_id": messageId
   }, req.body, function(err, result) {
     res.send(
       (err === null) ? {
@@ -53,11 +52,11 @@ router.put('/:id', function(req, res) {
 });
 
 /*
- * Create new user
+ * Create new message
  */
 router.post('/', function(req, res) {
   var db = req.db;
-  var collection = db.users;
+  var collection = db.messages;
   collection.insert(req.body, function(err, result) {
     res.send(
       (err === null) ? {
@@ -70,20 +69,22 @@ router.post('/', function(req, res) {
 });
 
 /*
- * DELETE user
+ * DELETE message
  */
 router.delete('/:id', function(req, res) {
   var db = req.db;
-  var collection = db.users;
-  var userToDelete = req.params.id;
+  var collection = db.messages;
+  var messageToDelete = req.params.id;
   collection.remove({
-    '_id': userToDelete
+    '_id': messageToDelete
   }, function(err) {
-    res.send((err === null) ? {
-      msg: ''
-    } : {
-      msg: 'error: ' + err
-    });
+    res.send(
+      (err === null) ? {
+        msg: ''
+      } : {
+        msg: err
+      }
+    );
   });
 });
 

@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', {
-    title: 'Mirego - CS Games 2016'
+    title: 'CS Games 2016 - Mobile - Server'
   });
 });
 

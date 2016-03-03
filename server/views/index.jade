@@ -2,7 +2,6 @@ extends layout
 
 block content
     h1= title
-    p Welcome to our test
 
     // Wrapper
     #wrapper
@@ -26,7 +25,7 @@ block content
         #userList
             table
                 thead
-                    th Name
+                    th Username
                     th Email
                     th Delete?
                 tbody
@@ -43,3 +42,12 @@ block content
         // /ADD USER
 
     // /WRAPPER
+
+    #messageList
+        h2 Message List
+        table
+            thead
+                th Username
+                th Message
+            tbody
+

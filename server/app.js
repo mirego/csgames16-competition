@@ -1,71 +1,91 @@
+/***********
+ * Imports *
+ ***********/
+ 
+// Web server
 var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-// Database
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/nodetest2');
 
+// Database
+var nedb = require('nedb');
+
+// Request helpers
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var favicon = require('serve-favicon');
+
+// Tools
+var logger = require('morgan');
+var path = require('path');
+
+/********************
+ * Setup the server *
+ ********************/
+
+// Setup routes
 var routes = require('./routes/index');
+var messages = require('./routes/messages');
 var users = require('./routes/users');
 
+// Setup express server
 var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-app.use(cookieParser());
+app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Make our db accessible to our router
+// Configure database collections
+var db = {};
+db.messages = new nedb({ filename: 'data/messages.db', autoload: true });
+db.users = new nedb({ filename: 'data/users.db', autoload: true });
+
+// Forward the database to the router
 app.use(function(req, res, next) {
   req.db = db;
   next();
 });
 
+/************************
+ * Configure the server *
+ ************************/
+
+// Setup view engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+// Setup helpers
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(favicon(__dirname + '/public/favicon.ico'));
+
+// Setup tools
+app.use(logger('dev'));
+
+// Setup routes
 app.use('/', routes);
+app.use('/messages', messages);
 app.use('/users', users);
 
-/// catch 404 and forwarding to error handler
+/// Catch 404 errors
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-/// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
+/// Setup debugging (print stacktrace)
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: err
   });
 });
 
+/********************
+ * Start the server *
+ ********************/
+
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on localhost:' + server.address().port);
+});
 
 module.exports = app;
