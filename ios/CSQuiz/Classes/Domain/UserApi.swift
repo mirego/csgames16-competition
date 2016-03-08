@@ -6,13 +6,12 @@
 //  Copyright © 2016 Mirego. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SwiftyJSON
 
 class UserApi
 {
-    private static let usersApiURL = "http://localhost:3000/users"
+    private static let userApiURL = "http://localhost:3000/users"
 
     private let manager: Manager
 
@@ -23,25 +22,30 @@ class UserApi
         configuration.HTTPAdditionalHeaders = Manager.defaultHTTPHeaders
         manager = Manager(configuration: configuration)
     }
-
-    func getAllUsers(completion: (users: [User]?, error: NSError?) -> ())
+    
+    func getUser(username: String, completion: (user: User?, error: NSError?) -> ())
     {
-        manager.request(.GET, UserApi.usersApiURL).response { (request, httpURLResponse, data, error) -> Void in
+        let parameters = ["name": username]
+        
+        manager.request(.GET, UserApi.userApiURL, parameters: parameters).response { (request, httpURLResponse, data, error) -> Void in
             if let data = data
             {
                 let jsonData = JSON(data: data)
-                var users: Array<User> = []
+                let users = self.jsonToUsers(jsonData)
+                completion(user: users.first, error: error)
+            } else {
+                completion(user: nil, error: error)
+            }
+        }
+    }
 
-                if let jsonUsers = jsonData.array {
-                    jsonUsers.forEach({ (user) -> () in
-                        users.append(User.createUser(
-                            userId: user["_id"].string,
-                            name: user["name"].string,
-                            email: user["email"].string
-                        ))
-                    })
-
-                }
+    func getAllUsers(completion: (users: [User]?, error: NSError?) -> ())
+    {
+        manager.request(.GET, UserApi.userApiURL).response { (request, httpURLResponse, data, error) -> Void in
+            if let data = data
+            {
+                let jsonData = JSON(data: data)
+                let users = self.jsonToUsers(jsonData)
                 completion(users: users, error: error)
             } else {
                 completion(users: nil, error: error)
@@ -49,22 +53,62 @@ class UserApi
         }
     }
 
-    func createUser(user: User, completion: (error: NSError?) -> ())
+    func createUser(user: User, completion: (user: User?, error: NSError?) -> ())
     {
-        manager.request(.POST, UserApi.usersApiURL, parameters: user.toDictionary()).response { (request, httpURLResponse, data, error) -> Void in
-            completion(error: error)
+        manager.request(.POST, UserApi.userApiURL, parameters: user.toDictionary()).response { (request, httpURLResponse, data, error) -> Void in
+            if let data = data
+            {
+                let jsonData = JSON(data: data)
+                let user = self.jsonToUser(jsonData)
+                completion(user: user, error: error)
+            } else {
+                completion(user: nil, error: error)
+            }
         }
     }
 
-    func updateUser(user: User, completion: (error: NSError?) -> ())
+    func updateUser(user: User, completion: (user: User?, error: NSError?) -> ())
     {
         guard let userId = user.userId else {
-            completion(error: NSError(domain: "no user id", code: -1, userInfo: nil))
+            completion(user: nil, error: NSError(domain: "No user id", code: -1, userInfo: nil))
             return
         }
 
-        manager.request(.PUT, UserApi.usersApiURL + "/\(userId)", parameters: user.toDictionary()).response { (request, httpURLResponse, data, error) -> Void in
-            completion(error: error)
+        manager.request(.PUT, UserApi.userApiURL + "/\(userId)", parameters: user.toDictionary()).response { (request, httpURLResponse, data, error) -> Void in
+            if let data = data
+            {
+                let jsonData = JSON(data: data)
+                let user = self.jsonToUser(jsonData)
+                completion(user: user, error: error)
+            } else {
+                completion(user: nil, error: error)
+            }
         }
+    }
+}
+
+// PMARK: Private
+extension UserApi
+{
+    private func jsonToUsers(json: JSON) -> [User]
+    {
+        var users = [User]()
+        
+        if let jsonUsers = json.array {
+            jsonUsers.forEach({ (user) -> () in
+                users.append(jsonToUser(user))
+            })
+        }
+        
+        return users
+    }
+    
+    private func jsonToUser(json: JSON) -> User
+    {
+        return User.createUser(
+            userId: json["_id"].string,
+            name: json["name"].string,
+            email: json["email"].string
+        )
     }
 }

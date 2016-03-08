@@ -8,11 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		4EE2916CE1A222815834ED80 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6174152D44D60D247B2A1ED /* Pods.framework */; };
+		E5DA9A761C8DE24C00280D87 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA9A741C8DE24C00280D87 /* MainView.swift */; };
+		E5DA9A771C8DE24C00280D87 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA9A751C8DE24C00280D87 /* MainViewController.swift */; };
+		E5DA9A791C8DE7F700280D87 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA9A781C8DE7F700280D87 /* HomeButton.swift */; };
+		E5DA9A851C8DEED100280D87 /* Flipbash.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5DA9A841C8DEECB00280D87 /* Flipbash.ttf */; };
+		E5DA9A881C8DEF4900280D87 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA9A871C8DEF4900280D87 /* Stylesheet.swift */; };
+		E5DA9A8A1C8E408F00280D87 /* SnapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA9A891C8E408F00280D87 /* SnapButton.swift */; };
+		E5DA9A8C1C8E41F100280D87 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA9A8B1C8E41F100280D87 /* TextField.swift */; };
+		E5DA9A8E1C8E424800280D87 /* MainMenuControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA9A8D1C8E424800280D87 /* MainMenuControlsView.swift */; };
+		E5DA9A901C8E425300280D87 /* UserControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA9A8F1C8E425300280D87 /* UserControlsView.swift */; };
+		E5E41D611C8E5D85007333FC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E41D601C8E5D85007333FC /* Utilities.swift */; };
+		E5E41D631C8E8A2F007333FC /* Stylesheet.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E41D621C8E8A2F007333FC /* Stylesheet.json */; };
+		E5E41D651C8E8A4C007333FC /* Stylesheet-568h.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E41D641C8E8A4C007333FC /* Stylesheet-568h.json */; };
+		E5E41D671C8E9ADE007333FC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E41D661C8E9ADE007333FC /* BaseViewController.swift */; };
+		E5E41D691C8E9FFC007333FC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5E41D681C8E9FFC007333FC /* Localizable.strings */; };
+		E5E41D6B1C8EA9C9007333FC /* Stylesheet-667h.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E41D6A1C8EA9C9007333FC /* Stylesheet-667h.json */; };
+		E5E41D6D1C8EA9DE007333FC /* Stylesheet-736h.json in Resources */ = {isa = PBXBuildFile; fileRef = E5E41D6C1C8EA9DE007333FC /* Stylesheet-736h.json */; };
 		F112E36E1C795AD100C22607 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112E3681C795AD100C22607 /* AppDelegate.swift */; };
 		F112E36F1C795AD100C22607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F112E36B1C795AD100C22607 /* Assets.xcassets */; };
-		F112E3701C795AD100C22607 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F112E36C1C795AD100C22607 /* LaunchScreen.storyboard */; };
-		F112E3731C795AED00C22607 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112E3721C795AED00C22607 /* MainViewController.swift */; };
-		F112E3751C795B0100C22607 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112E3741C795B0100C22607 /* MainView.swift */; };
 		F15431EE1C795BCB000B28A6 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15431ED1C795BCB000B28A6 /* UserApi.swift */; };
 		F15431F11C795C05000B28A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15431F01C795C05000B28A6 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -20,13 +33,27 @@
 /* Begin PBXFileReference section */
 		60E837F99C7422A14E74555F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A04E3785768E9C21CF3023A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E5DA9A741C8DE24C00280D87 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E5DA9A751C8DE24C00280D87 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E5DA9A781C8DE7F700280D87 /* HomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
+		E5DA9A7A1C8DEA7300280D87 /* CSQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
+		E5DA9A7E1C8DEDF100280D87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5DA9A841C8DEECB00280D87 /* Flipbash.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Flipbash.ttf; sourceTree = "<group>"; };
+		E5DA9A871C8DEF4900280D87 /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
+		E5DA9A891C8E408F00280D87 /* SnapButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapButton.swift; sourceTree = "<group>"; };
+		E5DA9A8B1C8E41F100280D87 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		E5DA9A8D1C8E424800280D87 /* MainMenuControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuControlsView.swift; sourceTree = "<group>"; };
+		E5DA9A8F1C8E425300280D87 /* UserControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserControlsView.swift; sourceTree = "<group>"; };
+		E5E41D601C8E5D85007333FC /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E5E41D621C8E8A2F007333FC /* Stylesheet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stylesheet.json; sourceTree = "<group>"; };
+		E5E41D641C8E8A4C007333FC /* Stylesheet-568h.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Stylesheet-568h.json"; sourceTree = "<group>"; };
+		E5E41D661C8E9ADE007333FC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E5E41D681C8E9FFC007333FC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E5E41D6A1C8EA9C9007333FC /* Stylesheet-667h.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Stylesheet-667h.json"; sourceTree = "<group>"; };
+		E5E41D6C1C8EA9DE007333FC /* Stylesheet-736h.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Stylesheet-736h.json"; sourceTree = "<group>"; };
 		F112E3521C7959B600C22607 /* CSQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F112E3611C7959B600C22607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F112E3681C795AD100C22607 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F112E3681C795AD100C22607 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F112E36B1C795AD100C22607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F112E36D1C795AD100C22607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F112E3721C795AED00C22607 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		F112E3741C795B0100C22607 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F15431ED1C795BCB000B28A6 /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		F15431F01C795C05000B28A6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6174152D44D60D247B2A1ED /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +77,86 @@
 				F6174152D44D60D247B2A1ED /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5DA9A6B1C8DC15800280D87 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E5E41D601C8E5D85007333FC /* Utilities.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E5DA9A6E1C8DE21400280D87 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E5E41D661C8E9ADE007333FC /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E5DA9A6F1C8DE21400280D87 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				E5DA9A781C8DE7F700280D87 /* HomeButton.swift */,
+				E5DA9A891C8E408F00280D87 /* SnapButton.swift */,
+				E5DA9A8B1C8E41F100280D87 /* TextField.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		E5DA9A701C8DE21400280D87 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E5DA9A731C8DE23800280D87 /* Subviews */,
+				E5DA9A751C8DE24C00280D87 /* MainViewController.swift */,
+				E5DA9A741C8DE24C00280D87 /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E5DA9A721C8DE21400280D87 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		E5DA9A731C8DE23800280D87 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				E5DA9A8D1C8E424800280D87 /* MainMenuControlsView.swift */,
+				E5DA9A8F1C8E425300280D87 /* UserControlsView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		E5DA9A7D1C8DEDE500280D87 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5DA9A7E1C8DEDF100280D87 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5DA9A831C8DEEBD00280D87 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E5DA9A841C8DEECB00280D87 /* Flipbash.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E5DA9A861C8DEF4000280D87 /* Stylesheet */ = {
+			isa = PBXGroup;
+			children = (
+				E5E41D621C8E8A2F007333FC /* Stylesheet.json */,
+				E5E41D641C8E8A4C007333FC /* Stylesheet-568h.json */,
+				E5E41D6A1C8EA9C9007333FC /* Stylesheet-667h.json */,
+				E5E41D6C1C8EA9DE007333FC /* Stylesheet-736h.json */,
+				E5DA9A871C8DEF4900280D87 /* Stylesheet.swift */,
+			);
+			path = Stylesheet;
 			sourceTree = "<group>";
 		};
 		EB9D1929D8D63CE3E095FF9A /* Pods */ = {
@@ -84,7 +191,7 @@
 			children = (
 				F112E3671C795AD100C22607 /* Classes */,
 				F112E36A1C795AD100C22607 /* Resources */,
-				F112E3611C7959B600C22607 /* Info.plist */,
+				E5DA9A7D1C8DEDE500280D87 /* Supporting Files */,
 			);
 			path = CSQuiz;
 			sourceTree = "<group>";
@@ -93,7 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				F112E3681C795AD100C22607 /* AppDelegate.swift */,
+				E5DA9A7A1C8DEA7300280D87 /* CSQuiz-Bridging-Header.h */,
 				F15431EC1C795BB6000B28A6 /* Domain */,
+				E5DA9A6B1C8DC15800280D87 /* Helper */,
 				F112E3691C795AD100C22607 /* UI */,
 			);
 			path = Classes;
@@ -102,8 +211,11 @@
 		F112E3691C795AD100C22607 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F112E3721C795AED00C22607 /* MainViewController.swift */,
-				F112E3741C795B0100C22607 /* MainView.swift */,
+				E5DA9A6E1C8DE21400280D87 /* Base */,
+				E5DA9A6F1C8DE21400280D87 /* Controls */,
+				E5DA9A701C8DE21400280D87 /* Main */,
+				E5DA9A721C8DE21400280D87 /* Messages */,
+				E5DA9A861C8DEF4000280D87 /* Stylesheet */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -112,7 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				F112E36B1C795AD100C22607 /* Assets.xcassets */,
-				F112E36C1C795AD100C22607 /* LaunchScreen.storyboard */,
+				E5DA9A831C8DEEBD00280D87 /* Fonts */,
+				E5E41D681C8E9FFC007333FC /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -196,7 +309,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F112E36F1C795AD100C22607 /* Assets.xcassets in Resources */,
-				F112E3701C795AD100C22607 /* LaunchScreen.storyboard in Resources */,
+				E5E41D691C8E9FFC007333FC /* Localizable.strings in Resources */,
+				E5E41D651C8E8A4C007333FC /* Stylesheet-568h.json in Resources */,
+				E5E41D6D1C8EA9DE007333FC /* Stylesheet-736h.json in Resources */,
+				E5E41D6B1C8EA9C9007333FC /* Stylesheet-667h.json in Resources */,
+				E5E41D631C8E8A2F007333FC /* Stylesheet.json in Resources */,
+				E5DA9A851C8DEED100280D87 /* Flipbash.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,26 +373,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E41D671C8E9ADE007333FC /* BaseViewController.swift in Sources */,
 				F112E36E1C795AD100C22607 /* AppDelegate.swift in Sources */,
 				F15431EE1C795BCB000B28A6 /* UserApi.swift in Sources */,
-				F112E3751C795B0100C22607 /* MainView.swift in Sources */,
+				E5DA9A8C1C8E41F100280D87 /* TextField.swift in Sources */,
+				E5E41D611C8E5D85007333FC /* Utilities.swift in Sources */,
+				E5DA9A791C8DE7F700280D87 /* HomeButton.swift in Sources */,
+				E5DA9A771C8DE24C00280D87 /* MainViewController.swift in Sources */,
+				E5DA9A881C8DEF4900280D87 /* Stylesheet.swift in Sources */,
+				E5DA9A761C8DE24C00280D87 /* MainView.swift in Sources */,
 				F15431F11C795C05000B28A6 /* User.swift in Sources */,
-				F112E3731C795AED00C22607 /* MainViewController.swift in Sources */,
+				E5DA9A8E1C8E424800280D87 /* MainMenuControlsView.swift in Sources */,
+				E5DA9A901C8E425300280D87 /* UserControlsView.swift in Sources */,
+				E5DA9A8A1C8E408F00280D87 /* SnapButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F112E36C1C795AD100C22607 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F112E36D1C795AD100C22607 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F112E3621C7959B600C22607 /* Debug */ = {
@@ -363,10 +478,14 @@
 			baseConfigurationReference = 9A04E3785768E9C21CF3023A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CSQuiz/Info.plist;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/CSQuiz/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mirego.CSQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSQuiz/Classes/CSQuiz-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -375,10 +494,13 @@
 			baseConfigurationReference = 60E837F99C7422A14E74555F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CSQuiz/Info.plist;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/CSQuiz/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mirego.CSQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSQuiz/Classes/CSQuiz-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -6,8 +6,6 @@
 //  Copyright © 2016 Mirego. All rights reserved.
 //
 
-import UIKit
-
 class User
 {
     var userId: String?
@@ -50,10 +48,10 @@ extension User: CustomDebugStringConvertible
                 debugString += "ID: \(userId) "
             }
             if let name = name {
-                debugString += "name: \(name) "
+                debugString += "Name: \(name) "
             }
             if let email = email {
-                debugString += "email: \(email) "
+                debugString += "Email: \(email) "
             }
            return debugString
         }

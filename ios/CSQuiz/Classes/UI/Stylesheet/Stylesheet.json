@@ -1,0 +1,10 @@
+{
+    "backgroundImageName": "img-background-480h",
+    
+    "homeTopMargin": 15,
+    "homeBottomMargin": 20,
+    
+    "homeControlFontSize": 16,
+    "homeControlHeight": 40,
+    "homeControlMargin": 10
+}

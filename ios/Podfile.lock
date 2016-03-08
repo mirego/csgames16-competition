@@ -1,24 +1,51 @@
 PODS:
   - Alamofire (3.2.0)
-  - MCDateExtensions (1.0.0)
-  - MCUIColorUtils (1.0.0)
+  - MCDateExtensions (1.0.2)
+  - MCUIColorUtils (1.0.1)
   - MCUIViewLayout (0.5.1)
+  - MRGArchitect (1.1.0)
   - SVProgressHUD (1.1.3)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire
-  - MCDateExtensions
-  - MCUIColorUtils
-  - MCUIViewLayout
+  - MCDateExtensions (from `git@github.com:mirego/MCDateExtensions.git`)
+  - MCUIColorUtils (from `git@github.com:mirego/MCUIColorUtils.git`)
+  - MCUIViewLayout (from `git@github.com:mirego/MCUIViewLayout.git`)
+  - MRGArchitect (from `git@github.com:mirego/MRGArchitect.git`)
   - SVProgressHUD
   - SwiftyJSON
 
+EXTERNAL SOURCES:
+  MCDateExtensions:
+    :git: git@github.com:mirego/MCDateExtensions.git
+  MCUIColorUtils:
+    :git: git@github.com:mirego/MCUIColorUtils.git
+  MCUIViewLayout:
+    :git: git@github.com:mirego/MCUIViewLayout.git
+  MRGArchitect:
+    :git: git@github.com:mirego/MRGArchitect.git
+
+CHECKOUT OPTIONS:
+  MCDateExtensions:
+    :commit: 4f066180898f5c9fd549e4574c520fda8367b139
+    :git: git@github.com:mirego/MCDateExtensions.git
+  MCUIColorUtils:
+    :commit: ef06e77e18d8bd5c2febdc3505250b648f01b6ed
+    :git: git@github.com:mirego/MCUIColorUtils.git
+  MCUIViewLayout:
+    :commit: 0b1ba63f1e938c929ee0fea2acb9c7771ee7c1af
+    :git: git@github.com:mirego/MCUIViewLayout.git
+  MRGArchitect:
+    :commit: f6586848114bdda9f3eb4c49ff6fc8ae1184c9d3
+    :git: git@github.com:mirego/MRGArchitect.git
+
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
-  MCDateExtensions: 469f38d0ed344653684881d53240f6ae21939d07
-  MCUIColorUtils: 6f11e1702db4ff5419d28cba1e8f7a82dd82d5fe
+  MCDateExtensions: 93f067b198405405f12c73208619caa436e30bee
+  MCUIColorUtils: d99a916bf2eacff39009e2a291fdea5d0de423a4
   MCUIViewLayout: 0701f55f82982eac83fa0d837a2c248fa2ce10d5
+  MRGArchitect: b226234d4a7f49c500c92909b97a1305ad0e3d2b
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
