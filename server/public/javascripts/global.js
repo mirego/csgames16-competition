@@ -119,14 +119,14 @@ function addUser(event) {
       dataType: 'JSON'
     }).done(function(response) {
 
-      // Check for successful (blank) response
-      if (response.msg === '') {
+      // Check for successful response
+      if (!response.msg) {
 
         // Clear the form inputs
         $('#addUser fieldset input').val('');
 
         // Update the table
-        populateTable();
+        populateTables();
 
       } else {
 
@@ -165,7 +165,7 @@ function deleteUser(event) {
       }
 
       // Update the table
-      populateTable();
+      populateTables();
 
     });
 

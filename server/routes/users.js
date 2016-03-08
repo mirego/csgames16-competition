@@ -43,11 +43,7 @@ router.put('/:id', function(req, res) {
     "_id": userId
   }, req.body, function(err, result) {
     res.send(
-      (err === null) ? {
-        msg: ''
-      } : {
-        msg: err
-      }
+      (err === null) ? result : { msg: err }
     );
   });
 });
@@ -60,11 +56,7 @@ router.post('/', function(req, res) {
   var collection = db.users;
   collection.insert(req.body, function(err, result) {
     res.send(
-      (err === null) ? {
-        msg: ''
-      } : {
-        msg: err
-      }
+      (err === null) ? result : { msg: err }
     );
   });
 });
