@@ -25,14 +25,14 @@ You will also find a digital version of the challenge description:
 <table width="100%">
   <thead>
     <tr>
-      <th width="50%">Français</th>
       <th width="50%">English</th>
+      <th width="50%">Français</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td align="center"><br><em>À venir</em><br>&nbsp;</td>
-      <td align="center"><br><em>Coming soon</em><br>&nbsp;</td>
+      <td align="center"><a href="https://github.com/mirego/csgames16-competition/raw/master/MobileCompetition-EN.pdf"><img src="https://cloud.githubusercontent.com/assets/4378424/13652341/a162a966-e619-11e5-8c66-e972657456b3.jpg" height="192"></a></td>
+      <td align="center"><a href="https://github.com/mirego/csgames16-competition/raw/master/MobileCompetition-FR.pdf"><img src="https://cloud.githubusercontent.com/assets/4378424/13652342/a16b2262-e619-11e5-8ef4-09af585228eb.jpg" height="192"></a></td>
     </tr>
   </tbody>
 </table>
