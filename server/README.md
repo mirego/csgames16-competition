@@ -79,9 +79,9 @@ The list is non-exhaustive, feel free to do anything you can think of!
 
 ## License
 
-This sample app is © 2016 [Mirego](http://www.mirego.com) and may be freely
+This competition is © 2016 [Mirego](http://www.mirego.com) and may be freely
 distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).
-See the [`LICENSE.md`](https://github.com/mirego/csgames16-sample-ios/blob/master/LICENSE.md) file.
+See the [`LICENSE.md`](https://github.com/mirego/csgames16-competition/blob/master/LICENSE.md) file.
 
 ## About Mirego
 
