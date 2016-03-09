@@ -1,6 +1,5 @@
 PODS:
-  - Alamofire (3.2.0)
-  - MCDateExtensions (1.0.2)
+  - Alamofire (3.2.1)
   - MCUIColorUtils (1.0.1)
   - MCUIViewLayout (0.5.1)
   - MRGArchitect (1.1.0)
@@ -9,7 +8,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - MCDateExtensions (from `git@github.com:mirego/MCDateExtensions.git`)
   - MCUIColorUtils (from `git@github.com:mirego/MCUIColorUtils.git`)
   - MCUIViewLayout (from `git@github.com:mirego/MCUIViewLayout.git`)
   - MRGArchitect (from `git@github.com:mirego/MRGArchitect.git`)
@@ -17,8 +15,6 @@ DEPENDENCIES:
   - SwiftyJSON
 
 EXTERNAL SOURCES:
-  MCDateExtensions:
-    :git: git@github.com:mirego/MCDateExtensions.git
   MCUIColorUtils:
     :git: git@github.com:mirego/MCUIColorUtils.git
   MCUIViewLayout:
@@ -27,9 +23,6 @@ EXTERNAL SOURCES:
     :git: git@github.com:mirego/MRGArchitect.git
 
 CHECKOUT OPTIONS:
-  MCDateExtensions:
-    :commit: 4f066180898f5c9fd549e4574c520fda8367b139
-    :git: git@github.com:mirego/MCDateExtensions.git
   MCUIColorUtils:
     :commit: ef06e77e18d8bd5c2febdc3505250b648f01b6ed
     :git: git@github.com:mirego/MCUIColorUtils.git
@@ -41,8 +34,7 @@ CHECKOUT OPTIONS:
     :git: git@github.com:mirego/MRGArchitect.git
 
 SPEC CHECKSUMS:
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
-  MCDateExtensions: 93f067b198405405f12c73208619caa436e30bee
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   MCUIColorUtils: d99a916bf2eacff39009e2a291fdea5d0de423a4
   MCUIViewLayout: 0701f55f82982eac83fa0d837a2c248fa2ce10d5
   MRGArchitect: b226234d4a7f49c500c92909b97a1305ad0e3d2b

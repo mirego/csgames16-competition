@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  RebelChat
+
+  Created by Émile Bélair on 2016-03-08.
+  Copyright © 2016 Mirego. All rights reserved.
+*/
+
+"LOGIN_BUTTON" = "Login";
+"REGISTER_BUTTON" = "Register";
+
+"USERNAME_PLACEHOLDER" = "Username";
+"PASSWORD_PLACEHOLDER" = "Password";
+"EMAIL_PLACEHOLDER" = "E-mail";
+
+"SUBMIT_BUTTON" = "Submit";
+"BACK_BUTTON" = "Back";
+
+"MESSAGE_LOGIN_ERROR" = "Login unsuccessful";
+"MESSAGE_REGISTER_ERROR" = "Registration error";
+"MESSAGE_POST_MESSAGE_SUCCESS" = "Message sent";
+"MESSAGE_POST_MESSAGE_ERROR" = "Message could not\nbe sent";
