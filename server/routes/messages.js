@@ -80,4 +80,21 @@ router.delete('/:id', function(req, res) {
   });
 });
 
+/*
+ * DELETE all message
+ */
+router.delete('/', function(req, res) {
+  var db = req.db;
+  var collection = db.messages;
+  collection.remove({}, { multi: true }, function(err) {
+    res.send(
+      (err === null) ? {
+        msg: ''
+      } : {
+        msg: err
+      }
+    );
+  });
+});
+
 module.exports = router;

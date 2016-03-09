@@ -11,7 +11,8 @@ a {
   color: #00B7FF;
 }
 
-#wrapper {
+.wrapper {
+	margin-top: 32px;
 	padding-left:312px;
 	position:relative;
 }
@@ -41,12 +42,14 @@ a {
 				text-align:center;
 			}
 
-#userInfo {
+#userInfo,
+#messageInfo {
 	width:260px;
 	position:absolute;
 	top:0; left:0;
 }
-	#userInfo p {
+	#userInfo p,
+	#messageInfo div {
 		padding:15px;
 		border:1px solid #CCC;
 		background:rgba(80,120,255,0.05);
@@ -55,6 +58,10 @@ a {
 #messageList {
 	margin:30px 0 0 0;
 }
+	#clear {
+		display: inline-block;
+		margin-bottom: 15px;
+	}
 
 fieldset {
 	border:0;

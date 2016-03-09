@@ -1,11 +1,15 @@
 // Userlist data array for filling in info box
 var userListData = [];
+var messageListData = [];
 
 // DOM Ready =============================================================
 $(document).ready(function() {
 
   // Populate the tables on initial page load
   populateTables();
+  
+  // Refresh button
+  $('body').on('click', '#refresh', populateTables);
 
   // Username link click
   $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
@@ -15,6 +19,15 @@ $(document).ready(function() {
 
   // Delete User link click
   $('#userList table tbody').on('click', 'td a.linkdeleteuser', deleteUser);
+  
+  // Message Clear All click
+  $('#messageList').on('click', '#clear', clearMessages);
+  
+  // Username link click
+  $('#messageList table tbody').on('click', 'td a.linkshowmessage', showMessageInfo);
+  
+  // Delete Message link click
+  $('#messageList table tbody').on('click', 'td a.linkdeletemessage', deleteMessage);
 
 });
 
@@ -49,6 +62,9 @@ function populateTables() {
   // jQuery AJAX call for messages JSON
   $.getJSON('/messages', function(data) {
 
+    // Stick our user data array into a messagelist variable in the global object
+    messageListData = data;
+
     // For each item in our JSON, add a table row and cells to the content string
     $.each(data, function() {
       var searchId = this.userId;
@@ -56,9 +72,12 @@ function populateTables() {
       $.each(userListData, function() {
         if (this["_id"] == searchId) userName = this.name
       });
+      this.userName = userName;
       messageTableContent += '<tr>';
       messageTableContent += '<td>' + userName + '</td>';
-      messageTableContent += '<td><img src="data:image/png;base64,' + this.message + '" height="120"></td>';
+      messageTableContent += '<td><a href="#" class="linkshowmessage" rel="' + this._id + '" title="Show Details">' + this.text + '</a></td>';
+      messageTableContent += '<td><a href="#" class="linkshowmessage" rel="' + this._id + '" title="Show Details">' + (this.image ? '<img src="data:image/png;base64,' + this.image + '" height="120">' : '') + '</a></td>';
+      messageTableContent += '<td><a href="#" class="linkdeletemessage" rel="' + this._id + '">delete</a></td>';
       messageTableContent += '</tr>';
     });
 
@@ -176,4 +195,66 @@ function deleteUser(event) {
 
   }
 
+};
+
+// Show User Info
+function showMessageInfo(event) {
+
+  // Prevent Link from Firing
+  event.preventDefault();
+
+  // Retrieve username from link rel attribute
+  var thisMessageId = $(this).attr('rel');
+
+  // Get Index of object based on id value
+  var arrayPosition = messageListData.map(function(arrayItem) {
+    return arrayItem._id;
+  }).indexOf(thisMessageId);
+
+  // Get our User Object
+  var thisMessageObject = messageListData[arrayPosition];
+
+  //Populate Info Box
+  $('#messageInfoId').text(thisMessageObject._id);
+  $('#messageInfoUserName').text(thisMessageObject.userName);
+  $('#messageInfoText').text(thisMessageObject.text);
+  $('#messageInfoImage').html(thisMessageObject.image ? '<img src="data:image/png;base64,' + thisMessageObject.image + '" width="' + $('#messageInfoImage').parent().width() + '">' : '');
+};
+
+// Delete Message
+function deleteMessage(event) {
+
+  event.preventDefault();
+
+  // If they did, do our delete
+  $.ajax({
+    type: 'DELETE',
+    url: '/messages/' + $(this).attr('rel')
+  }).done(function(response) {
+
+    // Check for a successful (blank) response
+    if (response.msg === '') {} else {
+      alert('Error: ' + response.msg);
+    }
+
+    // Update the table
+    populateTables();
+
+  });
+};
+
+// Clear messages
+function clearMessages(event) {
+  event.preventDefault();
+
+  // Clear all messages
+  $.ajax({
+    type: 'DELETE',
+    url: '/messages/'
+  }).done(function(response) {
+  
+    // Update the table
+    populateTables();
+    
+  });
 };

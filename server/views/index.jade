@@ -2,9 +2,11 @@ extends layout
 
 block content
     h1= title
+    
+    | #[a#refresh(href="#") Refresh]
 
     // Wrapper
-    #wrapper
+    .wrapper
 
         // USER INFO
         #userInfo
@@ -42,12 +44,44 @@ block content
         // /ADD USER
 
     // /WRAPPER
+    
+    | **
 
-    #messageList
-        h2 Message List
-        table
-            thead
-                th Username
-                th Message
-            tbody
+    // Wrapper
+    .wrapper
+    
+        // USER INFO
+        #messageInfo
+            h2 Message Info
+            div
+                strong Id:
+                |  <span id='messageInfoId'></span>
+                br
+                strong Username:
+                |  <span id='messageInfoUserName'></span>
+                br
+                br
+                strong Message Text:
+                |  <span id='messageInfoText'></span>
+                br
+                br
+                strong Message Image:
+                br
+                |  <span id='messageInfoImage'></span>
+        // /USER INFO
 
+        #messageList
+            h2 Message List
+        
+            | #[a#clear(href="#") Delete All]
+        
+            table
+                thead
+                    th Username
+                    th Message Text
+                    th Message Image
+                    th Delete?
+                tbody
+
+
+    // /WRAPPER
