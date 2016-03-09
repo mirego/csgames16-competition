@@ -22,7 +22,18 @@ func random(range: Range<Int>) -> CGFloat
     return CGFloat(mini + arc4random_uniform(maxi - mini))
 }
 
-func LocalizedString(key: String, comment: String = "") -> String
+func randomString(length: Int) -> String
 {
-    return NSLocalizedString(key, comment: comment)
+    let letters = NSString(string: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+    let totalLetters = UInt32(letters.length)
+    
+    let randomString = NSMutableString(capacity: length)
+    
+    for _ in 0...length
+    {
+        let rand = arc4random_uniform(totalLetters)
+        randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+    }
+    
+    return "\(randomString)"
 }

@@ -12,12 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
     var window: UIWindow?
+    
+    let userApi = UserApi()
+    let messageApi = MessageApi()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window!.backgroundColor = UIColor.whiteColor()
-        window!.rootViewController = MainViewController(userApi: UserApi())
+        window!.backgroundColor = UIColor.blackColor()
+        window!.rootViewController = MainViewController(userApi: userApi, messageApi: messageApi)
         window!.makeKeyAndVisible()
 
         return true

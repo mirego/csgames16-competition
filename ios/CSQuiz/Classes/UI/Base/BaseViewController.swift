@@ -34,7 +34,7 @@ extension BaseViewController
         SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
     }
     
-    func hideLoadingIndicator(success success: Bool, message: String? = nil, completion: () -> ())
+    func hideLoadingIndicator(success success: Bool, message: String? = nil, completion: (() -> ())? = nil)
     {
         var duration: NSTimeInterval = 0
         
@@ -57,7 +57,7 @@ extension BaseViewController
                 SVProgressHUD.dismiss()
             }
             
-            completion()
+            completion?()
         }
     }
 }

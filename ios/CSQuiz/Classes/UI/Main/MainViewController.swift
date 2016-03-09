@@ -15,13 +15,15 @@ class MainViewController: BaseViewController
     }
 
     private let userApi: UserApi
+    private let messageApi: MessageApi
 
     private var addUserAlertController: UIAlertController?
     private var addAction: UIAlertAction?
 
-    init(userApi: UserApi)
+    init(userApi: UserApi, messageApi: MessageApi)
     {
         self.userApi = userApi
+        self.messageApi = messageApi
 
         super.init()
     }
@@ -60,6 +62,18 @@ class MainViewController: BaseViewController
     }
 }
 
+// PMARK: Private
+extension MainViewController
+{
+    private func presentMessagesViewController(user: User)
+    {
+        let messagesViewController = MessagesViewController(userId: user.userId ?? "", messageApi: messageApi)
+        presentViewController(messagesViewController, animated: true, completion: {
+            self.mainView.setState(.MainMenu, animated: false)
+        })
+    }
+}
+
 // PMARK: Keyboard Notifications
 extension MainViewController
 {
@@ -75,6 +89,7 @@ extension MainViewController
     }
 }
 
+// PMARK: MainViewDelegate
 extension MainViewController: MainViewDelegate
 {
     func didSubmitLogin(username username: String, password: String)
@@ -82,17 +97,12 @@ extension MainViewController: MainViewDelegate
         showLoadingIndicator()
         
         userApi.getUser(username) { (user, error) -> () in
-            NSLog("\(user)")
-            // TODO
-            
             if let user = user {
                 self.hideLoadingIndicator(success: true, completion: {
-                    // TODO
+                    self.presentMessagesViewController(user)
                 })
             } else {
-                self.hideLoadingIndicator(success: false, message: LocalizedString("MESSAGE_LOGIN_ERROR"), completion: {
-                    // TODO
-                })
+                self.hideLoadingIndicator(success: false, message: LocalizedString("MESSAGE_LOGIN_ERROR"))
             }
         }
     }
@@ -101,18 +111,15 @@ extension MainViewController: MainViewDelegate
     {
         showLoadingIndicator()
         
-        userApi.createUser(User.createUser(userId: nil, name: username, email: email)) { (user, error) -> () in
-            NSLog("\(user)")
-            // TODO
-            
+        let user = User.createUser(userId: nil, name: username, email: email)
+        
+        userApi.createUser(user) { (user, error) -> () in
             if let user = user {
                 self.hideLoadingIndicator(success: true, completion: {
-                    // TODO
+                    self.presentMessagesViewController(user)
                 })
             } else {
-                self.hideLoadingIndicator(success: false, message: LocalizedString("MESSAGE_REGISTER_ERROR"), completion: {
-                    // TODO
-                })
+                self.hideLoadingIndicator(success: false, message: LocalizedString("MESSAGE_REGISTER_ERROR"))
             }
         }
     }

@@ -24,11 +24,12 @@ class Stylesheet
     static var homeControlHeight: CGFloat { return architect.floatForKey("homeControlHeight") }
     static var homeControlMargin: CGFloat { return architect.floatForKey("homeControlMargin") }
     
-    static let snapButtonSize: CGFloat = 76
+    static let snapButtonSize: CGFloat = 65
     
     // PMARK: Durations
     static let shortAnimationDuration: NSTimeInterval = 0.3
-    static let longAnimationDuration: NSTimeInterval = 0.5
+    static let mediumAnimationDuration: NSTimeInterval = 0.5
+    static let longAnimationDuration: NSTimeInterval = 1.5
     
     static let minimumLoadingDuration: NSTimeInterval = 0.5
     

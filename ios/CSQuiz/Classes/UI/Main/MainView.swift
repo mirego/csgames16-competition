@@ -16,14 +16,14 @@ protocol MainViewDelegate
 
 class MainView: UIView
 {
-    private enum State
+    enum State
     {
         case MainMenu
         case Login
         case Register
     }
     
-    private var state: State = .MainMenu
+    private(set) var state: State = .MainMenu
     
     private let backgroundImageView = UIImageView(image: UIImage(named: Stylesheet.backgroundImageName))
     
@@ -145,7 +145,7 @@ extension MainView
 // PMARK: Private
 extension MainView
 {
-    private func animateToState(state: State)
+    func setState(state: State, animated: Bool)
     {
         self.state = state
         
@@ -162,25 +162,35 @@ extension MainView
         let startView = (state == .MainMenu) ? userControlsView : mainMenuControlsView
         let endView = (state == .MainMenu) ? mainMenuControlsView : userControlsView
         
-        // Animate to the next controls view with a spring animation
-        UIView.animateWithDuration(Stylesheet.longAnimationDuration, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.0, options: .CurveEaseInOut, animations: { () -> Void in
-            self.positionControlsViews()
-        }, completion: { (finished) -> Void in
-            self.userControlsView.focusOnTextField(endView == self.userControlsView)
-        })
+        let shouldFocusOnTextField = (endView == self.userControlsView)
         
-        // Slightly offset each control during the animation
-        [startView.subviews, endView.subviews].flatMap({ $0 }).forEach { (view) -> () in
-            let originalCenter = view.center
-            let modifiedCenter = CGPoint(x: view.center.x + random(0...10) * (view.superview == mainMenuControlsView ? -1 : 1), y: view.center.y)
-            
-            view.center = (view.superview == startView) ? originalCenter : modifiedCenter
-            
-            UIView.animateWithDuration(Stylesheet.longAnimationDuration, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
-                view.center = (view.superview == endView) ? originalCenter : modifiedCenter
+        if (animated)
+        {
+            // Animate to the next controls view with a spring animation
+            UIView.animateWithDuration(Stylesheet.mediumAnimationDuration, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.0, options: .CurveEaseInOut, animations: { () -> Void in
+                self.positionControlsViews()
             }, completion: { (finished) -> Void in
-                view.center = originalCenter
+                self.userControlsView.focusOnTextField(shouldFocusOnTextField)
             })
+        
+            // Slightly offset each control during the animation
+            [startView.subviews, endView.subviews].flatMap({ $0 }).forEach { (view) -> () in
+                let originalCenter = view.center
+                let modifiedCenter = CGPoint(x: view.center.x + random(0...10) * (view.superview == mainMenuControlsView ? -1 : 1), y: view.center.y)
+                
+                view.center = (view.superview == startView) ? originalCenter : modifiedCenter
+                
+                UIView.animateWithDuration(Stylesheet.mediumAnimationDuration, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                    view.center = (view.superview == endView) ? originalCenter : modifiedCenter
+                }, completion: { (finished) -> Void in
+                    view.center = originalCenter
+                })
+            }
+        }
+        else
+        {
+            positionControlsViews()
+            userControlsView.focusOnTextField(shouldFocusOnTextField)
         }
     }
 }
@@ -190,12 +200,12 @@ extension MainView: MainMenuControlsViewDelegate
 {
     func didTapLoginButton()
     {
-        animateToState(.Login)
+        setState(.Login, animated: true)
     }
     
     func didTapRegisterButton()
     {
-        animateToState(.Register)
+        setState(.Register, animated: true)
     }
 }
 
@@ -214,6 +224,6 @@ extension MainView: UserControlsViewDelegate
     
     func didTapBackButton()
     {
-        animateToState(.MainMenu)
+        setState(.MainMenu, animated: true)
     }
 }
