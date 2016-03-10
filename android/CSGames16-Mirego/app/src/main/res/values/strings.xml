@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">CSGames16-Mirego</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="prompt_password_required">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="login">login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="cancel">cancel</string>
+    <string name="create">create</string>
+    <string name="prompt_username">Username</string>
+    <string name="default_message">Look at my beautiful picutre!</string>
+    <string name="login_fail">Login Fail</string>
+    <string name="send_message_error">Error sending message!</string>
+    <string name="message_sent_successfully">Message Sent!</string>
+</resources>
