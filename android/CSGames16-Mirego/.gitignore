@@ -1,0 +1,15 @@
+# Mac OS X
+.DS_Store
+
+# Android project
+.gradle
+.android
+local.properties
+.idea/
+*.iml
+caches/
+native/
+build/
+captures/
+
+Gemfile.lock
