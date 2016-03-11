@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_side_margin">20dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_font_size">16sp</dimen>
+
+    <dimen name="home_logo_top_margin">60dp</dimen>
+    <dimen name="home_logo_bottom_margin">30dp</dimen>
+    <dimen name="home_controls_top_margin">30dp</dimen>
+    <dimen name="home_controls_middle_margin">12dp</dimen>
+    <dimen name="home_controls_bottom_margin">20dp</dimen>
+
+    <dimen name="message_text_height">42dp</dimen>
+    <dimen name="message_font_size">16sp</dimen>
+    <dimen name="message_button_top_margin">12dp</dimen>
+    <dimen name="message_button_side_margin">12dp</dimen>
+</resources>

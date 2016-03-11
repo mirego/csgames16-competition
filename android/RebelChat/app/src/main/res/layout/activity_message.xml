@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/message_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_bg" />
+
+        <TextView
+            android:id="@+id/message_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/message_text_height"
+            android:layout_gravity="center"
+            android:background="@color/messageBackground"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/message_font_size"
+            tools:text="LY8uU81OVgJqKZo97" />
+
+    </FrameLayout>
+
+    <com.mirego.rebelchat.views.controls.ToolButton
+        android:id="@+id/btn_logout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|left"
+        android:padding="8dp"
+        android:focusable="true"
+        android:layout_marginTop="@dimen/message_button_top_margin"
+        android:layout_marginStart="@dimen/message_button_side_margin"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icn_logout" />
+
+    <com.mirego.rebelchat.views.controls.ToolButton
+        android:id="@+id/btn_shuffle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|right"
+        android:padding="8dp"
+        android:focusable="true"
+        android:layout_marginTop="@dimen/message_button_top_margin"
+        android:layout_marginEnd="@dimen/message_button_side_margin"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icn_shuffle" />
+
+    <com.mirego.rebelchat.views.controls.SnapButton
+        android:id="@+id/btn_snap"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:padding="4dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="12dp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <FrameLayout
+        android:id="@+id/flash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        />
+
+</FrameLayout>

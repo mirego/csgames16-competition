@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_app_logo"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="@dimen/home_logo_top_margin"
+            android:layout_marginBottom="@dimen/home_logo_bottom_margin"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_logo" />
+
+        <ImageView
+            android:id="@+id/img_app_title"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/app_side_margin"
+            android:paddingRight="@dimen/app_side_margin"
+            android:layout_marginTop="@dimen/home_controls_top_margin"
+            android:layout_marginBottom="@dimen/home_controls_bottom_margin">
+
+            <Button
+                android:id="@+id/btn_login"
+                android:background="@drawable/ripple_primary"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:text="@string/btn_login_title"
+                android:textColor="@color/buttonText"
+                android:textSize="@dimen/button_font_size" />
+
+            <Button
+                android:id="@+id/btn_register"
+                android:background="@drawable/ripple_secondary"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/home_controls_middle_margin"
+                android:text="@string/btn_register_title"
+                android:textColor="@color/buttonText"
+                android:textSize="@dimen/button_font_size" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RebelChat</string>
+    <string name="btn_login_title">LOGIN</string>
+    <string name="btn_register_title">REGISTER</string>
+</resources>
