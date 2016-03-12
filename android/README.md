@@ -20,7 +20,7 @@ You can download these from the [Android Developer website](http://developer.and
 First, make sure you have cloned the project from Github:
 
 ```
-git clone git@github.com:mirego/csgames16-competition.git
+git clone http://github.com/mirego/csgames16-competition.git
 ```
 
 Then, in Android Studio: 
@@ -31,6 +31,14 @@ Then, in Android Studio:
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/4378424/13450169/9f925920-e000-11e5-999a-464b9949ee9a.png" width="199"></p>
 
 Once you see a `BUILD SUCCESSFUL` notice in the Gradle Console, your environment should be ready to build and run the project.
+
+### Web server
+
+For the app to communicate with the local web server, you must set your local IP address in the project configuration file.
+
+In `res/vales/config.xml`:
+
+- Change the value of `service_host` to the IP address of your computer on the local network (you cannot set `localhost` or `127.0.0.1` because it will use the loopback of the Android device).
 
 ## Building the project
 

@@ -20,7 +20,7 @@ You can download these from the [Apple Developer website](https://developer.appl
 First, make sure you have cloned the project from Github:
 
 ```
-git clone git@github.com:mirego/csgames16-competition.git
+git clone http://github.com/mirego/csgames16-competition.git
 ```
 
 Navigate into this directory:
