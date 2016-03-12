@@ -7,9 +7,9 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.transition.AutoTransition;
-import android.transition.Explode;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionSet;
@@ -37,12 +37,14 @@ public class MessageActivity extends BaseActivity {
 
     private MessageController messageController;
     private String currentUserId;
+    private Handler messageHandler;
+    private Runnable messageCallback;
 
     @Bind(R.id.root)
     View root;
 
     @Bind(R.id.canvas)
-    View canvas;
+    View screenView;
 
     @Bind(R.id.message_image)
     ImageView messageImage;
@@ -62,6 +64,8 @@ public class MessageActivity extends BaseActivity {
         setContentView(R.layout.activity_message);
         ButterKnife.bind(this);
 
+        messageHandler = new Handler();
+
         messageController = new MessageControllerImpl();
         currentUserId = getIntent().getStringExtra(EXTRA_USER_ID);
 
@@ -74,6 +78,44 @@ public class MessageActivity extends BaseActivity {
         getWindow().setEnterTransition(createTransition(false));
         getWindow().setReturnTransition(createTransition(true));
         getWindow().setReenterTransition(createTransition(false));
+
+
+        messageCallback = new Runnable() {
+            @Override
+            public void run() {
+                android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_DEFAULT);
+
+                Bitmap screenshot = Bitmap.createBitmap(screenView.getWidth(), screenView.getHeight(), Bitmap.Config.ARGB_8888);
+                Canvas c = new Canvas(screenshot);
+                screenView.layout(0, 0, screenView.getWidth(), screenView.getHeight());
+                screenView.draw(c);
+                String base64Image = Encoding.encodeImageToBase64(screenshot);
+
+                String text = messageText.getText().toString();
+
+                messageController.sendMessage(getApplicationContext(), currentUserId, text, base64Image, new MessageController.SendMessageCallback() {
+                    @Override
+                    public void onSendMessageSuccess() {
+                        dismissLoadingIndicator(new Runnable() {
+                            @Override
+                            public void run() {
+                                Snackbar.make(root, R.string.message_send_success, Snackbar.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onSendMessageFail() {
+                        dismissLoadingIndicator(new Runnable() {
+                            @Override
+                            public void run() {
+                                Snackbar.make(root, R.string.message_send_error, Snackbar.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+            }
+        };
     }
 
     private Transition createTransition(boolean goingOut) {
@@ -103,21 +145,21 @@ public class MessageActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        onLogoutPressed();
+        startActivity(HomeActivity.newIntent(this), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     @OnClick(R.id.btn_logout)
-    public void onLogoutPressed() {
+    void onLogoutPressed() {
         startActivity(HomeActivity.newIntent(this), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     @OnClick(R.id.btn_shuffle)
-    public void onShufflePressed() {
+    void onShufflePressed() {
         setRandomString();
     }
 
     @OnClick(R.id.btn_snap)
-    public void onSnapPressed() {
+    void onSnapPressed() {
         takeAndSendScreenshot();
     }
 
@@ -129,43 +171,12 @@ public class MessageActivity extends BaseActivity {
     private void takeAndSendScreenshot() {
         showLoadingIndicator(getString(R.string.message_send_progress));
 
-        Thread screenshotOperation = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_DEFAULT);
+        messageHandler.post(messageCallback);
+    }
 
-                Bitmap screenshot = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.ARGB_8888);
-                Canvas c = new Canvas(screenshot);
-                canvas.layout(0, 0, canvas.getWidth(), canvas.getHeight());
-                canvas.draw(c);
-                String base64Image = Encoding.encodeImageToBase64(screenshot);
-
-                String text = messageText.getText().toString();
-
-                messageController.sendMessage(getApplicationContext(), currentUserId, text, base64Image, new MessageController.SendMessageCallback() {
-                    @Override
-                    public void onSendMessageSuccess() {
-                        dismissLoadingIndicator(new Runnable() {
-                            @Override
-                            public void run() {
-                                Snackbar.make(root, R.string.message_send_success, Snackbar.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onSendMessageFail() {
-                        dismissLoadingIndicator(new Runnable() {
-                            @Override
-                            public void run() {
-                                Snackbar.make(root, R.string.message_send_error, Snackbar.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                });
-            }
-        });
-
-        screenshotOperation.start();
+    @Override
+    protected void onPause() {
+        super.onPause();
+        messageHandler.removeCallbacks(messageCallback);
     }
 }

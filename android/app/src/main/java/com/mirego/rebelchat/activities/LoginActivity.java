@@ -112,7 +112,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     @OnClick(R.id.btn_submit)
-    public void onSubmitPressed() {
+    void onSubmitPressed() {
         if (isRegister) {
             onRegisterPressed();
         } else {
