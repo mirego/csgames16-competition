@@ -12,6 +12,6 @@ pod 'SVProgressHUD', :inhibit_warnings => true
 pod 'SwiftyJSON', :inhibit_warnings => true
 
 # Public - Mirego
-pod 'MCUIColorUtils', :git => 'git@github.com:mirego/MCUIColorUtils.git', :inhibit_warnings => true
-pod 'MCUIViewLayout', :git => 'git@github.com:mirego/MCUIViewLayout.git', :inhibit_warnings => true
-pod 'MRGArchitect', :git => 'git@github.com:mirego/MRGArchitect.git', :inhibit_warnings => true
+pod 'MCUIColorUtils', :git => 'https://github.com/mirego/MCUIColorUtils.git', :inhibit_warnings => true
+pod 'MCUIViewLayout', :git => 'https://github.com/mirego/MCUIViewLayout.git', :inhibit_warnings => true
+pod 'MRGArchitect', :git => 'https://github.com/mirego/MRGArchitect.git', :inhibit_warnings => true

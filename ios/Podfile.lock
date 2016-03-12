@@ -8,30 +8,30 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - MCUIColorUtils (from `git@github.com:mirego/MCUIColorUtils.git`)
-  - MCUIViewLayout (from `git@github.com:mirego/MCUIViewLayout.git`)
-  - MRGArchitect (from `git@github.com:mirego/MRGArchitect.git`)
+  - MCUIColorUtils (from `https://github.com/mirego/MCUIColorUtils.git`)
+  - MCUIViewLayout (from `https://github.com/mirego/MCUIViewLayout.git`)
+  - MRGArchitect (from `https://github.com/mirego/MRGArchitect.git`)
   - SVProgressHUD
   - SwiftyJSON
 
 EXTERNAL SOURCES:
   MCUIColorUtils:
-    :git: git@github.com:mirego/MCUIColorUtils.git
+    :git: https://github.com/mirego/MCUIColorUtils.git
   MCUIViewLayout:
-    :git: git@github.com:mirego/MCUIViewLayout.git
+    :git: https://github.com/mirego/MCUIViewLayout.git
   MRGArchitect:
-    :git: git@github.com:mirego/MRGArchitect.git
+    :git: https://github.com/mirego/MRGArchitect.git
 
 CHECKOUT OPTIONS:
   MCUIColorUtils:
     :commit: ef06e77e18d8bd5c2febdc3505250b648f01b6ed
-    :git: git@github.com:mirego/MCUIColorUtils.git
+    :git: https://github.com/mirego/MCUIColorUtils.git
   MCUIViewLayout:
     :commit: 0b1ba63f1e938c929ee0fea2acb9c7771ee7c1af
-    :git: git@github.com:mirego/MCUIViewLayout.git
+    :git: https://github.com/mirego/MCUIViewLayout.git
   MRGArchitect:
     :commit: f6586848114bdda9f3eb4c49ff6fc8ae1184c9d3
-    :git: git@github.com:mirego/MRGArchitect.git
+    :git: https://github.com/mirego/MRGArchitect.git
 
 SPEC CHECKSUMS:
   Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a

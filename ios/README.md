@@ -44,7 +44,7 @@ pod install
 When completed, the project should be ready to open:
 
 ```
-open RebelChat.xcodeproj
+open RebelChat.xcworkspace
 ```
 
 ## Building the project
