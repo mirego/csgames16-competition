@@ -5,5 +5,6 @@
     <color name="colorSecondary">#4A4644</color>
     <color name="colorSecondaryDark">#2E2B2A</color>
     <color name="messageBackground">#80000000</color>
-    <color name="buttonText">#FFFFFF</color>
+    <color name="toolbarBackground">#E3E7EA</color>
+    <color name="windowBackground">#000000</color>
 </resources>

@@ -1,11 +1,18 @@
 package com.mirego.rebelchat.activities;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.os.*;
+import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.transition.Explode;
+import android.transition.Transition;
+import android.transition.TransitionSet;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,6 +32,9 @@ public class MessageActivity extends BaseActivity {
 
     private MessageController messageController;
     private String currentUserId;
+
+    @Bind(R.id.root)
+    View root;
 
     @Bind(R.id.canvas)
     View canvas;
@@ -51,20 +61,47 @@ public class MessageActivity extends BaseActivity {
         currentUserId = getIntent().getStringExtra(EXTRA_USER_ID);
 
         setRandomString();
+
+        getWindow().setAllowEnterTransitionOverlap(false);
+        getWindow().setAllowReturnTransitionOverlap(true);
+
+        getWindow().setExitTransition(createTransition(true));
+        getWindow().setEnterTransition(createTransition(false));
+        getWindow().setReturnTransition(createTransition(true));
+        getWindow().setReenterTransition(createTransition(false));
+    }
+
+    private Transition createTransition(boolean goingOut) {
+        TransitionSet transitionSet = new TransitionSet();
+
+        Explode explodeTransition = new Explode();
+        explodeTransition.setDuration(4000);
+        explodeTransition.setInterpolator(goingOut ? new AccelerateInterpolator() : new DecelerateInterpolator());
+        explodeTransition.addTarget(R.id.canvas);
+
+        transitionSet.addTransition(explodeTransition);
+        transitionSet.setOrdering(TransitionSet.ORDERING_SEQUENTIAL);
+
+        return transitionSet;
+    }
+
+    @Override
+    public void onBackPressed() {
+        onLogoutPressed();
     }
 
     @OnClick(R.id.btn_logout)
-    void onLogoutClicked() {
-        startActivity(MainActivity.newIntent(this));
+    public void onLogoutPressed() {
+        startActivity(HomeActivity.newIntent(this), ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     @OnClick(R.id.btn_shuffle)
-    void onShuffleClicked() {
+    public void onShufflePressed() {
         setRandomString();
     }
 
     @OnClick(R.id.btn_snap)
-    void onSnapClicked() {
+    public void onSnapPressed() {
         takeAndSendScreenshot();
     }
 
@@ -74,7 +111,7 @@ public class MessageActivity extends BaseActivity {
     }
 
     private void takeAndSendScreenshot() {
-        showLoadingIndicator();
+        showLoadingIndicator(getString(R.string.message_send_progress));
 
         Thread screenshotOperation = new Thread(new Runnable() {
             @Override
@@ -92,22 +129,20 @@ public class MessageActivity extends BaseActivity {
                 messageController.sendMessage(getApplicationContext(), currentUserId, text, base64Image, new MessageController.SendMessageCallback() {
                     @Override
                     public void onSendMessageSuccess() {
-                        runOnUiThread(new Runnable() {
+                        dismissLoadingIndicator(new Runnable() {
                             @Override
                             public void run() {
-                                dismissLoadingIndicator();
-                                //Toast.makeText(MessageActivity.this, R.string.message_sent_successfully, Toast.LENGTH_SHORT).show();
+                                Snackbar.make(root, R.string.message_send_success, Snackbar.LENGTH_SHORT).show();
                             }
                         });
                     }
 
                     @Override
                     public void onSendMessageFail() {
-                        runOnUiThread(new Runnable() {
+                        dismissLoadingIndicator(new Runnable() {
                             @Override
                             public void run() {
-                                dismissLoadingIndicator();
-                                //Toast.makeText(MessageActivity.this, R.string.send_message_error, Toast.LENGTH_SHORT).show();
+                                Snackbar.make(root, R.string.message_send_error, Snackbar.LENGTH_SHORT).show();
                             }
                         });
                     }

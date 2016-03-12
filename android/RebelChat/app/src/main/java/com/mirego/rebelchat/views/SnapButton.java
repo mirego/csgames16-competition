@@ -1,4 +1,4 @@
-package com.mirego.rebelchat.views.controls;
+package com.mirego.rebelchat.views;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,6 @@ import android.widget.Button;
 
 import com.mirego.rebelchat.utilities.Easing;
 
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -47,7 +46,7 @@ public class SnapButton extends Button {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN && timer == null) {
-            startTime = now();
+            startTime = System.currentTimeMillis();
             timer = new Timer();
             timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
@@ -56,7 +55,7 @@ public class SnapButton extends Button {
                 }
             }, 0, REFRESH_RATE_MS);
         } else if (event.getAction() == MotionEvent.ACTION_CANCEL || event.getAction() == MotionEvent.ACTION_UP) {
-            stopTime = now();
+            stopTime = System.currentTimeMillis();
         }
 
         return super.onTouchEvent(event);
@@ -74,12 +73,12 @@ public class SnapButton extends Button {
         // Check the timer state (forward or backwards animation)
         long duration = 0;
         if (stopTime != null) {
-            duration = (long) (lastValue - (now() - stopTime) * (lastValue / ((float) ANIMATION_DURATION / 10)));
+            duration = (long) (lastValue - (System.currentTimeMillis() - stopTime) * (lastValue / ((float) ANIMATION_DURATION / 10)));
             if (duration <= 0) {
                 cancelTimer();
             }
         } else if (startTime != null) {
-            duration = now() - startTime;
+            duration = System.currentTimeMillis() - startTime;
             lastValue = duration;
         } else if (timer != null) {
             cancelTimer();
@@ -136,10 +135,5 @@ public class SnapButton extends Button {
                 }
             });
         }
-    }
-
-    private long now() {
-        Date now = new Date();
-        return now.getTime();
     }
 }

@@ -4,9 +4,10 @@
     <dimen name="button_height">48dp</dimen>
     <dimen name="button_font_size">16sp</dimen>
 
-    <dimen name="home_logo_top_margin">60dp</dimen>
-    <dimen name="home_logo_bottom_margin">30dp</dimen>
-    <dimen name="home_controls_top_margin">30dp</dimen>
+    <dimen name="home_info_top_margin">54dp</dimen>
+    <dimen name="home_info_middle_margin">30dp</dimen>
+    <dimen name="home_info_bottom_margin">44dp</dimen>
+    <dimen name="home_controls_top_margin">20dp</dimen>
     <dimen name="home_controls_middle_margin">12dp</dimen>
     <dimen name="home_controls_bottom_margin">20dp</dimen>
 
@@ -14,4 +15,5 @@
     <dimen name="message_font_size">16sp</dimen>
     <dimen name="message_button_top_margin">12dp</dimen>
     <dimen name="message_button_side_margin">12dp</dimen>
+    <dimen name="message_button_size">86dp</dimen>
 </resources>

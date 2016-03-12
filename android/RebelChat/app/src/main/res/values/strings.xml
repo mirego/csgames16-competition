@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">RebelChat</string>
+
+    <!-- Login -->
     <string name="btn_login_title">LOGIN</string>
     <string name="btn_register_title">REGISTER</string>
+    <string name="btn_do_login_title">Login</string>
+    <string name="btn_do_register_title">Register</string>
+    <string name="btn_back_title">Back</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_email">E-mail</string>
+    <string name="message_login_progress">Logging in...</string>
+    <string name="message_login_error">Login unsuccessful</string>
+    <string name="message_register_progress">Registering...</string>
+    <string name="message_register_error">Registration error</string>
+
+    <!-- Messages -->
+    <string name="message_send_progress">Sending message...</string>
+    <string name="message_send_success">Message sent successfully</string>
+    <string name="message_send_error">Error sending message</string>
 </resources>

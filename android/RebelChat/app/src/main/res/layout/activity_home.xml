@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/application_title" />
+
+    <LinearLayout
+        android:id="@+id/section_controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/app_side_margin"
+        android:paddingRight="@dimen/app_side_margin"
+        android:paddingTop="@dimen/home_controls_top_margin"
+        android:paddingBottom="@dimen/home_controls_bottom_margin">
+
+        <Button
+            android:id="@+id/btn_login"
+            android:background="@drawable/ripple_primary"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/btn_login_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/button_font_size" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:background="@drawable/ripple_secondary"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/home_controls_middle_margin"
+            android:text="@string/btn_register_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/button_font_size" />
+
+    </LinearLayout>
+
+</LinearLayout>

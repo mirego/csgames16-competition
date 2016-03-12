@@ -1,4 +1,4 @@
-package com.mirego.rebelchat.views.controls;
+package com.mirego.rebelchat.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
