@@ -32,7 +32,7 @@ cd csgames16-competition/ios
 This project uses [CocoaPods](https://cocoapods.org/) as a dependency manager. If you don't have it already, install it with the following command:
 
 ```
-gem install cocoapods
+sudo gem install cocoapods
 ```
 
 Then fetch dependencies and build the workspace:
@@ -44,7 +44,7 @@ pod install
 When completed, the project should be ready to open:
 
 ```
-open "RebelChat.xcodeproj"
+open RebelChat.xcodeproj
 ```
 
 ## Building the project
