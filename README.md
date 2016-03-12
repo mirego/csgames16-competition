@@ -13,9 +13,9 @@ In this repository, you will find the required projects to begin with:
   </thead>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/mirego/csgames16-competition/tree/master/ios"><br><img src="https://cloud.githubusercontent.com/assets/4378424/13625721/90d6d7de-e588-11e5-83d9-b16f14b6cfaa.png" height="100"><br><br>iOS Application</a></td>
-      <td align="center"><a href="https://github.com/mirego/csgames16-competition/tree/master/android"><br><img src="https://cloud.githubusercontent.com/assets/4378424/13625718/90ca7e30-e588-11e5-9cd1-7fcc06d4a62a.png" height="100"><br><br>Android Application</a></td>
-      <td align="center"><a href="https://github.com/mirego/csgames16-competition/tree/master/server"><br><img src="https://cloud.githubusercontent.com/assets/4378424/13625719/90d24cbe-e588-11e5-9e56-8f31ecf8c902.png" height="100"><br><br>Web Server</a></td>
+      <td align="center"><a href="https://github.com/mirego/csgames16-competition/tree/master/ios" target="_blank"><br><img src="https://cloud.githubusercontent.com/assets/4378424/13625721/90d6d7de-e588-11e5-83d9-b16f14b6cfaa.png" height="100"><br><br>iOS Application</a></td>
+      <td align="center"><a href="https://github.com/mirego/csgames16-competition/tree/master/android" target="_blank"><br><img src="https://cloud.githubusercontent.com/assets/4378424/13625718/90ca7e30-e588-11e5-9cd1-7fcc06d4a62a.png" height="100"><br><br>Android Application</a></td>
+      <td align="center"><a href="https://github.com/mirego/csgames16-competition/tree/master/server" target="_blank"><br><img src="https://cloud.githubusercontent.com/assets/4378424/13625719/90d24cbe-e588-11e5-9e56-8f31ecf8c902.png" height="100"><br><br>Web Server</a></td>
     </tr>
   </tbody>
 </table>
@@ -31,8 +31,8 @@ You will also find a digital version of the challenge description:
   </thead>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/mirego/csgames16-competition/raw/master/MobileCompetition-EN.pdf"><img src="https://cloud.githubusercontent.com/assets/4378424/13652341/a162a966-e619-11e5-8c66-e972657456b3.jpg" height="192"></a></td>
-      <td align="center"><a href="https://github.com/mirego/csgames16-competition/raw/master/MobileCompetition-FR.pdf"><img src="https://cloud.githubusercontent.com/assets/4378424/13652342/a16b2262-e619-11e5-8ef4-09af585228eb.jpg" height="192"></a></td>
+      <td align="center"><a href="https://github.com/mirego/csgames16-competition/raw/master/MobileCompetition-EN.pdf" target="_blank"><img src="https://cloud.githubusercontent.com/assets/4378424/13652341/a162a966-e619-11e5-8c66-e972657456b3.jpg" height="192"></a></td>
+      <td align="center"><a href="https://github.com/mirego/csgames16-competition/raw/master/MobileCompetition-FR.pdf" target="_blank"><img src="https://cloud.githubusercontent.com/assets/4378424/13652342/a16b2262-e619-11e5-8ef4-09af585228eb.jpg" height="192"></a></td>
     </tr>
   </tbody>
 </table>
