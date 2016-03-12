@@ -7,14 +7,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RadialGradient;
 import android.graphics.Shader;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Button;
 
 import com.mirego.rebelchat.utilities.Easing;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class SnapButton extends Button {
 
@@ -26,7 +24,8 @@ public class SnapButton extends Button {
 
     private Paint paint = new Paint();
 
-    private Timer timer;
+    private Handler handler = new Handler();
+    private Refresher refresher = new Refresher();
     private Long startTime;
     private Long stopTime;
     private Long lastValue;
@@ -45,15 +44,9 @@ public class SnapButton extends Button {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN && timer == null) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN && startTime == null) {
             startTime = System.currentTimeMillis();
-            timer = new Timer();
-            timer.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    askRelayout();
-                }
-            }, 0, REFRESH_RATE_MS);
+            handler.post(refresher);
         } else if (event.getAction() == MotionEvent.ACTION_CANCEL || event.getAction() == MotionEvent.ACTION_UP) {
             stopTime = System.currentTimeMillis();
         }
@@ -71,17 +64,18 @@ public class SnapButton extends Button {
         paint.setFlags(Paint.ANTI_ALIAS_FLAG);
 
         // Check the timer state (forward or backwards animation)
+        boolean shouldRepeat = true;
         long duration = 0;
         if (stopTime != null) {
             duration = (long) (lastValue - (System.currentTimeMillis() - stopTime) * (lastValue / ((float) ANIMATION_DURATION / 10)));
             if (duration <= 0) {
-                cancelTimer();
+                shouldRepeat = false;
             }
         } else if (startTime != null) {
             duration = System.currentTimeMillis() - startTime;
             lastValue = duration;
-        } else if (timer != null) {
-            cancelTimer();
+        } else {
+            shouldRepeat = false;
         }
 
         // Calculate the gradient
@@ -113,27 +107,27 @@ public class SnapButton extends Button {
         paint.setStyle(Paint.Style.STROKE);
         paint.setShader(null);
         canvas.drawCircle(centerX, centerY, radius - (BORDER_WIDTH + OUTLINE_WIDTH) / 2, paint);
-    }
 
-    private void cancelTimer() {
-        startTime = null;
-        stopTime = null;
-        if (timer != null) {
-            timer.cancel();
+        if (shouldRepeat) {
+            handler.postDelayed(refresher, REFRESH_RATE_MS);
+        } else {
+            startTime = null;
+            stopTime = null;
         }
-        timer = null;
-        askRelayout();
     }
 
-    private void askRelayout() {
-        if (getContext() instanceof Activity) {
-            Activity activity = (Activity) getContext();
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    invalidate();
-                }
-            });
+    class Refresher implements Runnable {
+        @Override
+        public void run() {
+            if (getContext() instanceof Activity) {
+                Activity activity = (Activity) getContext();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        invalidate();
+                    }
+                });
+            }
         }
     }
 }

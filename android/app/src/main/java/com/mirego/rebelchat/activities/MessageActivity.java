@@ -5,11 +5,15 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.transition.AutoTransition;
 import android.transition.Explode;
+import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionSet;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -19,6 +23,7 @@ import android.widget.TextView;
 import com.mirego.rebelchat.R;
 import com.mirego.rebelchat.controllers.MessageController;
 import com.mirego.rebelchat.controllers.MessageControllerImpl;
+import com.mirego.rebelchat.transition.ScaleTransition;
 import com.mirego.rebelchat.utilities.Encoding;
 import com.mirego.rebelchat.utilities.RandomString;
 
@@ -74,12 +79,23 @@ public class MessageActivity extends BaseActivity {
     private Transition createTransition(boolean goingOut) {
         TransitionSet transitionSet = new TransitionSet();
 
-        Explode explodeTransition = new Explode();
-        explodeTransition.setDuration(4000);
-        explodeTransition.setInterpolator(goingOut ? new AccelerateInterpolator() : new DecelerateInterpolator());
-        explodeTransition.addTarget(R.id.canvas);
+        AutoTransition autoTransition = new AutoTransition();
+        autoTransition.setInterpolator(goingOut ? new AccelerateInterpolator() : new DecelerateInterpolator());
+        autoTransition.addTarget(R.id.message_image);
 
-        transitionSet.addTransition(explodeTransition);
+        Slide slideUp = new Slide(Gravity.BOTTOM);
+        slideUp.setInterpolator(goingOut ? new AccelerateInterpolator() : new DecelerateInterpolator());
+        slideUp.addTarget(R.id.message_text);
+
+        ScaleTransition scaleTransition = new ScaleTransition();
+        scaleTransition.addTarget(R.id.btn_logout);
+        scaleTransition.addTarget(R.id.btn_shuffle);
+        scaleTransition.addTarget(R.id.btn_snap);
+
+        transitionSet.addTransition(autoTransition);
+        transitionSet.addTransition(slideUp);
+        transitionSet.addTransition(scaleTransition);
+
         transitionSet.setOrdering(TransitionSet.ORDERING_SEQUENTIAL);
 
         return transitionSet;

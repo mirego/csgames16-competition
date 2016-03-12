@@ -86,13 +86,13 @@
 
             <TextView
                 android:id="@+id/btn_back"
-                style="?android:borderlessButtonStyle"
+                android:background="?selectableItemBackgroundBorderless"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
                 android:gravity="center"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="@string/btn_back_title"
                 android:textColor="@color/colorSecondaryDark" />
 
@@ -103,7 +103,7 @@
 
             <TextView
                 android:id="@+id/btn_submit"
-                style="?android:borderlessButtonStyle"
+                android:background="?selectableItemBackgroundBorderless"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="right"

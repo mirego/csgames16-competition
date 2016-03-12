@@ -52,7 +52,6 @@ public class LoginActivity extends BaseActivity {
 
     public static Intent newIntent(Activity fromActivity, Boolean register) {
         Intent intent = new Intent(fromActivity, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(EXTRA_REGISTER, register);
         return intent;
     }
@@ -109,8 +108,7 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.btn_back)
     public void onBackPressed() {
-        ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(this, findViewById(R.id.section_controls), "section_controls");
-        startActivity(HomeActivity.newIntent(this));//, activityOptions.toBundle());
+        finishAfterTransition();
     }
 
     @OnClick(R.id.btn_submit)
