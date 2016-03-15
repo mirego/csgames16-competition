@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class UserApi
 {
-    private static let userApiURL = "http://localhost:3000/users"
+    private static let userApiURL = "http://csgames16-competition.herokuapp.com/users"
 
     private let manager: Manager
 

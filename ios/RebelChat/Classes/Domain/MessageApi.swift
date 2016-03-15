@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class MessageApi
 {
-    private static let messageApiURL = "http://localhost:3000/messages"
+    private static let messageApiURL = "http://csgames16-competition.herokuapp.com/messages"
     
     private let manager: Manager
     

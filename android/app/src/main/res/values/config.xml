@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="service_host">172.29.132.242</string>
-    <integer name="service_port">3000</integer>
+    <string name="service_host">csgames16-competition.herokuapp.com</string>
+    <integer name="service_port">80</integer>
 </resources>
