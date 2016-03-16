@@ -9,7 +9,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
+    <string>6.0</string>
+    <key>CFBundleDisplayName</key>
+    <string>$(PRODUCT_NAME)</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -18,8 +20,16 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
+    <key>CFBundleVersion</key>
+    <string>0.0.1</string>
+    <key>CFMajorNumber</key>
+    <string>0</string>
+    <key>CFMinorNumber</key>
+    <string>0</string>
+    <key>CFRevisionNumber</key>
+    <string>1</string>
+    <key>CFBuildNumber</key>
+    <string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
